@@ -2,18 +2,8 @@ const fs = require('fs');
 const Papa = require('papaparse');
 const newman = require('newman');
 
-
-console.log ("::::::::::::::::::::::::::::::::::::::::::::");
-console.log ("Proyect: Js_NewMan_CSV");
-console.log ("Author: lBatres / lbatres@mystratis.com");
-console.log ("Date: 2021");
-console.log ("Owen: MyStratis");
-console.log ("::::::::::::::::::::::::::::::::::::::::::::");
-
-
 newman.run({
-    //collection: require('./Stratis.json'),  // jsonCollectionPostman
-    collection: "https://api.getpostman.com/collections/bc64435d-791e-4254-8151-0f796e23bab4?apikey=PMAK-614f70f1030f860051832740-fba1639edad3d06eb697faa41017a92952",  // jsonCollectionPostman
+    collection: "https://api.getpostman.com/collections/cc2c6966-ce7b-43a1-9163-dee7ee5a4638?apikey=PMAK-615cd157a54a40003535a9be-4602d0a449d9aaf5cda552bb1e348e6b88",  // jsonCollectionPostman
     reporters: 'cli',
     iterationData: './data.csv'  // File CSV Data Original
 }, (error) => {
