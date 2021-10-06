@@ -3,7 +3,7 @@ const Papa = require('papaparse');
 const newman = require('newman');
 
 newman.run({
-    collection: "https://api.getpostman.com/collections/cc2c6966-ce7b-43a1-9163-dee7ee5a4638?apikey=PMAK-615cd157a54a40003535a9be-4602d0a449d9aaf5cda552bb1e348e6b88",  // jsonCollectionPostman
+    collection: urlRequest,  // jsonCollectionPostman
     reporters: 'cli',
     iterationData: './data.csv'  // File CSV Data Original
 }, (error) => {
