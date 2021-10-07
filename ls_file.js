@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require("path");
 
 fs.readdir("./files_csv", function (err, archivos) {
 
@@ -11,8 +12,7 @@ console.log(archivos);
 
 });
 
-const fs = require("fs");
-const path = require("path");
+
 
 const getMostRecentFile = (dir) => {
   const files = orderReccentFiles(dir);
