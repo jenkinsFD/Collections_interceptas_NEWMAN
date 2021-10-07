@@ -6,13 +6,15 @@ fs.readdir("./files_csv", function (err, archivos) {
 		onError(err);
 		return;
 	}
+console.log(archivos);
+});
 
-	archivos.forEach(function(file){
+
+fs.readdir("./files_csv",function(err, list){
+	list.forEach(function(file){
 		console.log(file);
 		stats = fs.statSync(file);
 		console.log(stats.mtime);
 		console.log(stats.ctime);
-	})
-
-console.log(archivos);
+	});
 });
