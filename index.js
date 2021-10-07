@@ -2,6 +2,28 @@ const fs = require('fs');
 const Papa = require('papaparse');
 const newman = require('newman');
 
+
+//------------------------------------------------------------------------------------
+const getMostRecentFile = (dir) => {
+  const files = orderReccentFiles(dir);
+  return files.length ? files[0] : undefined;
+};
+
+const orderReccentFiles = (dir) => {
+  return fs.readdirSync(dir)
+    .filter((file) => fs.lstatSync(path.join(dir, file)).isFile())
+    .map((file) => ({ file, mtime: fs.lstatSync(path.join(dir, file)).mtime }))
+    .sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
+};
+
+console.log("Ultimo archivo Creado ------> "+ getMostRecentFile('./files_csv'));
+let lastFileCreated = getMostRecentFile('./files_csv');
+let lasFile = lastFileCreated.file;
+console.log (lasFile);
+
+//------------------------------------------------------------------------------------
+
+
 newman.run({
     collection: urlRequest,  // jsonCollectionPostman
     reporters: 'cli',
