@@ -7,14 +7,13 @@ fs.readdir("./files_csv", function (err, archivos) {
 		return;
 	}
 console.log(archivos);
-});
-
-
-fs.readdir("./files_csv",function(err, list){
-	list.forEach(function(file){
+	
+	archivos.forEach(function(file){
 		console.log(file);
 		stats = fs.statSync(file);
 		console.log(stats.mtime);
 		console.log(stats.ctime);
 	});
 });
+
+
