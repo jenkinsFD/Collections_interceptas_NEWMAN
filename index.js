@@ -16,10 +16,12 @@ const orderReccentFiles = (dir) => {
     .sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
 };
 
-console.log("Ultimo archivo Creado ------> "+ getMostRecentFile('./files_csv'));
+//console.log("Ultimo archivo Creado ------> "+ getMostRecentFile('./files_csv'));
 let lastFileCreated = getMostRecentFile('./files_csv');
 let lasFile = lastFileCreated.file;
-console.log (lasFile);
+console.log ("Ultimo archivo creado->> "+ lasFile);
+let urlFile = './files_csv/'+lasFile;
+console.log ("Ruta del archivo --> "+urlFile);
 
 //------------------------------------------------------------------------------------
 
@@ -27,7 +29,7 @@ console.log (lasFile);
 newman.run({
     collection: urlRequest,  // jsonCollectionPostman
     reporters: 'cli',
-    iterationData: './data.csv'  // File CSV Data Original
+    iterationData:  urlFile // File CSV Data Original
 }, (error) => {
 	if (error) { 
         throw error; 
