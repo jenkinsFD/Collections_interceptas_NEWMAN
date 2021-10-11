@@ -54,7 +54,7 @@ newman.run({
 });
 
 function updateCsvFile(testResults) {
-    fs.readFile('./data.csv', 'utf8', (error, data) => {
+    fs.readFile(urlFile, 'utf8', (error, data) => {
         if (error) {
             throw error;
         }
